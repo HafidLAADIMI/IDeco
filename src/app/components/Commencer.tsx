@@ -3,7 +3,7 @@ import { IoLogOutOutline } from "react-icons/io5";
 
 function Commencer() {
   return (
-    <div className="flex flex-col items-center justify-center py-3">
+    <div className="bg-white relative h-[100%]  w-full flex items-center pb-4  rounded-t-xl   flex-col ">
       <div className="absolute top-[57%] pl-3">
         <div className=" font-semibold text-2xl ">Personnaliser votre</div>
         <div className=" font-semibold text-2xl">tableau décoratif</div>
