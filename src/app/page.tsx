@@ -11,6 +11,7 @@ import Cadre from "./components/Cadre";
 import Resume from "./components/Resume";
 import Felicitaion from "./components/Felicitaion";
 import { IoLogOutOutline } from "react-icons/io5";
+import Carousel from "./components/Sliders/Carousel";
 export default function Home() {
   const bigLogo = "/bigLogo.svg";
   const logo = "/logo.svg";
@@ -69,10 +70,11 @@ export default function Home() {
       {/* <Couleur/> */}
       {/* <Style/> */}
       {/* <Format/> */}
-      {/* <Mur/> */}
+      <Mur/>
       {/* <Cadre/> */}
       {/* <Resume/> */}
-      <Felicitaion/>
+      {/* <Felicitaion/> */}
+      {/* <Carousel/> */}
     </div>
   );
 }
