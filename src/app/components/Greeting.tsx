@@ -3,18 +3,11 @@ import { IoLogOutOutline } from "react-icons/io5";
 function Greeting() {
   return (
     <div className="bg-white relative h-[100%]  w-full flex items-center pb-4  rounded-t-xl   flex-col ">
-      <div className=" font-semibold text-2xl ">Personnaliser votre</div>
-      <div className=" font-semibold text-2xl">tableau décoratif</div>
-      <div className=" font-semibold text-2xl text-orange">gratuitement</div>
-      <div className="font-light text-xl">
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Harum, ab
-        possimus, jami jdja
-      </div>
-
+   
       <div className="bg-white h-[40vh] w-full flex items-center   absolute bottom-0 rounded-t-xl justify-center gap-10 flex-col">
         <div className="h-1 w-16 rounded-xl absolute top-1 bg-grey"></div>
-        <p className="text-orange text-xl">Sélectionnez votre langue</p>
-        <form className="flex text-black text-xl px-7 flex-col  w-full justify-between items-center gap-10">
+        <p className="text-orange max-sm:text-xs sm:text-xl">Sélectionnez votre langue</p>
+        <form className="flex text-black max-sm:text-xs sm:text-xl px-7 flex-col  w-full justify-between items-center gap-10">
           <div className=" flex flex-row gap-24">
             <div className="flex cursor-pointer flex-row items-center gap-7 border-2 border-orange py-2 px-3 rounded-xl">
               <label>Français</label>

@@ -6,6 +6,11 @@ import Espace from "./components/Espace";
 import Couleur from "./components/Couleur";
 import Style from "./components/Style";
 import Format from "./components/Format";
+import Mur from "./components/Mur";
+import Cadre from "./components/Cadre";
+import Resume from "./components/Resume";
+import Felicitaion from "./components/Felicitaion";
+import { IoLogOutOutline } from "react-icons/io5";
 export default function Home() {
   const bigLogo = "/bigLogo.svg";
   const logo = "/logo.svg";
@@ -13,7 +18,7 @@ export default function Home() {
   const strange = "/strange.svg";
   const ideco = "/ideco.svg";
   return (
-    <div className="w-full bg-gronna relative  overflow-hidden h-[100%] overflow-y-scroll text-left text-5xl text-white font-poppins">
+    <div className="w-full bg-gronna relative  overflow-hidden h-[100%] text-5xl text-white  font-poppins">
       <Image height={500} width={500} alt="image" src={bigLogo} />
       <Image
         height={500}
@@ -43,22 +48,31 @@ export default function Home() {
         src={ideco}
         className="absolute h-[2.2%] cursor-pointer w-[21.04%] top-[2.97%] right-[62.75%] left-[16.21%] max-w-full overflow-hidden max-h-full"
       />
-      <div className=" absolute top-[52%] pl-3">
+      <div className=" absolute top-[55%] px-3 ">
         <div className=" font-semibold text-2xl ">Personnaliser votre</div>
         <div className=" font-semibold text-2xl">tableau décoratif</div>
         <div className=" font-semibold text-2xl text-orange">gratuitement</div>
-        <div className="font-light text-xl">
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Harum, ab
-          possimus, jami jdja
+        <div className="font-light  text-xl mt-6 ">
+        Construisez facilement votre tableau en quelques étapes simples.
+          Commencez par choisir vos préférences personnelles, puis bénéficiez d
+          une consultation et d une livraison gratuite. Rejoignez- nous et
+          gagnez en qualité et en satisaction
         </div>
+        <button className="flex flex-row  justify-center w-full bg-orange text-white max-sm:text-xs sm:text-xl  mt-[10%] rounded-lg items-center gap-3 py-2 px-10 cursor-pointer ">
+        <p>Commencer</p>
+        <IoLogOutOutline className="text-2xl" />
+      </button>
       </div>
       {/* <Greeting /> */}
-      {/* <Commencer/> */}
       {/* <Informations/> */}
       {/* <Espace/> */}
       {/* <Couleur/> */}
       {/* <Style/> */}
-      <Format/>
+      {/* <Format/> */}
+      {/* <Mur/> */}
+      {/* <Cadre/> */}
+      {/* <Resume/> */}
+      <Felicitaion/>
     </div>
   );
 }

@@ -1,0 +1,20 @@
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <mask id="mask0_1_2569" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
+    <path d="M24 0H0V24H24V0Z" fill="white"/>
+    </mask>
+    <g mask="url(#mask0_1_2569)">
+    <path d="M6 17.6L4 16.5V14" stroke="#D98553" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M4 9.99999V7.49999L6 6.39999" stroke="#D98553" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M10 4.1L12 3L14 4.1" stroke="#D98553" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M18 6.39999L20 7.49999V9.99999" stroke="#D98553" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M20 14V16.5L18 17.62" stroke="#D98553" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M14 19.9L12 21L10 19.9" stroke="#D98553" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M12 12L14 10.9" stroke="#D98553" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M18 8.6L20 7.5" stroke="#D98553" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M12 12V14.5" stroke="#D98553" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M12 18.5V21" stroke="#D98553" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M12 12L10 10.88" stroke="#D98553" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M6 8.6L4 7.5" stroke="#D98553" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+    </svg>
+    

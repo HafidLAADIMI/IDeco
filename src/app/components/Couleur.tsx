@@ -3,17 +3,17 @@ import { IoLogOutOutline } from "react-icons/io5";
 
 function Couleur() {
   return (
-    <div className="bg-white relative h-[100%]  w-full flex items-center pb-4  rounded-t-xl   flex-col ">
+    <div className="bg-white relative h-[100%]  w-full flex items-center pb-4  rounded-t-xl py-3  flex-col ">
       <div className="h-1 w-16 rounded-xl absolute top-1 bg-grey"></div>
       <div className="px-4 flex mt-3 flex-col gap-2">
-        <p className="text-black font-bold text-xl">
+        <p className="text-black font-bold max-sm:text-xs sm:text-xl">
           Choisissez votre couleur préférée{" "}
         </p>
-        <p className="text-black text-xl">
+        <p className="text-black max-sm:text-xs sm:text-xl">
           Pour continuer, nous avons besoin de certaines informations de votre
           part. Veuillez nous fournir vos coordonnées.
         </p>
-        <form className="flex text-black text-xl  flex-col  w-full justify-between  items-start gap-5">
+        <form className="flex text-black max-sm:text-xs sm:text-xl  flex-col  w-full justify-between  items-start gap-5">
           <select
             name="couleur"
             id="couleur"
