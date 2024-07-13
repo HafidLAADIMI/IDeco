@@ -1,11 +1,22 @@
+"use client"
 import React from "react";
 import { IoLogOutOutline } from "react-icons/io5";
-
+import { useStepContext } from "../stepsContext";
+import {motion} from "framer-motion"
 function Resume() {
+  const {setStep}=useStepContext();
   return (
-    <div className="bg-white relative h-[100%]  w-full flex items-center py-3  rounded-t-xl text-wrap text-ellipsis gap-3 selection: flex-col ">
+    <motion.div
+    variants={{
+      hidden: { opacity: 0, y: 75 },
+      visible: { opacity: 1, y: 0 },
+    }}
+    initial="hidden"
+    animate="visible"
+    transition={{ duration: 0.65, delay: 0.4 }}
+    className="bg-white relative h-[100%]  w-full flex items-center py-3  rounded-t-xl text-wrap text-ellipsis gap-3 selection: flex-col ">
       <div className="h-1 w-16  rounded-xl absolute top-1 bg-grey"></div>
-      <div className="pl-3 flex flex-col gap-6 mt-3 h-full ">
+      <div className="px-3 flex flex-col gap-6 mt-3 h-full ">
         <p className="text-black font-bold max-sm:text-xs sm:text-xl">
           Resume de votre commande
         </p>
@@ -96,12 +107,14 @@ function Resume() {
             <p className="font-bold">MAD*****,00</p>
           </div>
         </div>
-        <button className="flex flex-row justify-center w-full bg-orange text-white rounded-lg items-center max-sm:text-xs sm:text-xl gap-3 py-2 px-10 cursor-pointer">
+        <button
+           onClick={()=>setStep(11)}
+         className="flex flex-row justify-center w-full bg-orange text-white rounded-lg items-center max-sm:text-xs sm:text-xl gap-3 py-2 px-10 cursor-pointer">
           <p>Terminer</p>
           <IoLogOutOutline className="text-2xl" />
         </button>
       </div>
-    </div>
+    </motion.div>
   );
 }
 

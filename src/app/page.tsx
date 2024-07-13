@@ -1,6 +1,8 @@
+"use client";
+import { useState } from "react";
 import Image from "next/image";
 import Greeting from "./components/Greeting";
-import Commencer from "./components/Commencer";
+// import Commencer from "./components/Commencer";
 import Informations from "./components/Informations";
 import Espace from "./components/Espace";
 import Couleur from "./components/Couleur";
@@ -11,17 +13,45 @@ import Cadre from "./components/Cadre";
 import Resume from "./components/Resume";
 import Felicitaion from "./components/Felicitaion";
 import { IoLogOutOutline } from "react-icons/io5";
-import Carousel from "./components/Sliders/Carousel";
+import CustomizeColor from "./components/CustomizeColor";
+import { useStepContext } from "./stepsContext";
+import Commencer from "./components/Commencer";
+
 export default function Home() {
+  const { step, setStep } = useStepContext();
+
   const bigLogo = "/bigLogo.svg";
   const logo = "/logo.svg";
   const squares = "/squares.svg";
   const strange = "/strange.svg";
   const ideco = "/ideco.svg";
+
+  // Function to handle moving to the next step
+  // const nextStep = () => {
+  //   setStep((prevStep) => prevStep + 1);
+  // };
+
+  // Array of components in the order you want to display them
+  const steps = [
+    <Commencer key="commencer" />,
+    <Greeting key="greeting" />,
+    <Informations key="informations" />,
+    <Espace key="espace" />,
+    <Couleur key="couleur" />,
+    <CustomizeColor key="customizeColor" />,
+    <Style key="style" />,
+    <Format key="format" />,
+    <Mur key="mur" />,
+    <Cadre key="cadre" />,
+    <Resume key="resume" />,
+    <Felicitaion key="felicitation" />,
+  ];
+
   return (
-    <div className="w-full bg-gronna relative  overflow-hidden h-[100%] text-5xl text-white  font-poppins">
+    <div className="w-full bg-gronna relative overflow-hidden h-[100%] text-5xl text-white font-poppins">
       <Image height={500} width={500} alt="image" src={bigLogo} />
       <Image
+        onClick={() => setStep(0)}
         height={500}
         width={500}
         alt="image"
@@ -29,6 +59,7 @@ export default function Home() {
         className="absolute cursor-pointer h-[3.53%] w-[7.65%] top-[2.29%] right-[87.01%] bottom-[94.17%] left-[5.33%] max-w-full overflow-hidden max-h-full"
       />
       <Image
+        onClick={() => setStep(0)}
         height={500}
         width={500}
         alt="image"
@@ -43,38 +74,15 @@ export default function Home() {
         className="absolute h-[36.77%] w-3/5 top-[15%] right-[34.67%] left-[5.33%] max-w-full overflow-hidden max-h-full"
       />
       <Image
+        onClick={() => setStep(0)}
         height={500}
         width={500}
         alt="image"
         src={ideco}
         className="absolute h-[2.2%] cursor-pointer w-[21.04%] top-[2.97%] right-[62.75%] left-[16.21%] max-w-full overflow-hidden max-h-full"
       />
-      <div className=" absolute top-[55%] px-3 ">
-        <div className=" font-semibold text-2xl ">Personnaliser votre</div>
-        <div className=" font-semibold text-2xl">tableau décoratif</div>
-        <div className=" font-semibold text-2xl text-orange">gratuitement</div>
-        <div className="font-light  text-xl mt-6 ">
-        Construisez facilement votre tableau en quelques étapes simples.
-          Commencez par choisir vos préférences personnelles, puis bénéficiez d
-          une consultation et d une livraison gratuite. Rejoignez- nous et
-          gagnez en qualité et en satisaction
-        </div>
-        <button className="flex flex-row  justify-center w-full bg-orange text-white max-sm:text-xs sm:text-xl  mt-[10%] rounded-lg items-center gap-3 py-2 px-10 cursor-pointer ">
-        <p>Commencer</p>
-        <IoLogOutOutline className="text-2xl" />
-      </button>
-      </div>
-      {/* <Greeting /> */}
-      {/* <Informations/> */}
-      {/* <Espace/> */}
-      {/* <Couleur/> */}
-      {/* <Style/> */}
-      {/* <Format/> */}
-      <Mur/>
-      {/* <Cadre/> */}
-      {/* <Resume/> */}
-      {/* <Felicitaion/> */}
-      {/* <Carousel/> */}
+
+      {steps[step]}
     </div>
   );
 }

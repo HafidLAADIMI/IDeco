@@ -1,8 +1,20 @@
+"use client"
 import React from "react";
 import { IoLogOutOutline } from "react-icons/io5";
+import { useStepContext } from "../stepsContext";
+import {motion} from "framer-motion"
 function Greeting() {
+  const {setStep}=useStepContext();
   return (
-    <div className="bg-white relative h-[100%]  w-full flex items-center pb-4  rounded-t-xl   flex-col ">
+    <motion.div
+    variants={{
+      hidden: { opacity: 0, y: 75 },
+      visible: { opacity: 1, y: 0 },
+    }}
+    initial="hidden"
+    animate="visible"
+    transition={{ duration: 0.65, delay: 0.4 }}
+    className="bg-white relative h-[100%]  w-full flex items-center pb-4  rounded-t-xl   flex-col ">
    
       <div className="bg-white h-[40vh] w-full flex items-center   absolute bottom-0 rounded-t-xl justify-center gap-10 flex-col">
         <div className="h-1 w-16 rounded-xl absolute top-1 bg-grey"></div>
@@ -28,13 +40,15 @@ function Greeting() {
               />
             </div>
           </div>
-          <button className="flex flex-row justify-center w-full bg-orange text-white rounded-lg items-center gap-3 py-2 px-10 cursor-pointer">
+          <button
+            onClick={()=>setStep(2)}
+           className="flex flex-row justify-center w-full bg-orange text-white rounded-lg items-center gap-3 py-2 px-10 cursor-pointer">
             <p>Continuer</p>
             <IoLogOutOutline className="text-2xl" />
           </button>
         </form>
       </div>
-    </div>
+    </motion.div>
   );
 }
 
