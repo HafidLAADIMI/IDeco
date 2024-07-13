@@ -14,7 +14,7 @@ function Commencer() {
       initial="hidden"
       animate="visible"
       transition={{ duration: 0.65, delay: 0.4 }}
-      className="absolute top-[55%] px-3 "
+      className="relative  h-[100%]   w-full flex items-start px-3 py-3  flex-col "
     >
       <div className="font-semibold text-2xl ">Personnaliser votre</div>
       <div className="font-semibold text-2xl">tableau décoratif</div>

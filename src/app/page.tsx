@@ -48,7 +48,7 @@ export default function Home() {
   ];
 
   return (
-    <div className="w-full bg-gronna relative overflow-hidden h-[100%] text-5xl text-white font-poppins">
+    <div className="w-full bg-gronna flex flex-col items-start  relative overflow-hidden  text-5xl text-white font-poppins">
       <Image height={500} width={500} alt="image" src={bigLogo} />
       <Image
         onClick={() => setStep(0)}
