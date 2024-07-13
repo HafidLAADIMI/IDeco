@@ -9,17 +9,15 @@ import "swiper/css/effect-coverflow";
 import "swiper/css/free-mode";
 import Image from "next/image";
 
-function Carousel() {
-  const img1 = "/img1.jpg";
-  const img2 = "/img2.jpg";
-  const img3 = "/img3.jpg";
-  const img4 = "/img4.jpg";
-  const img5 = "/img5.jpg";
-  const img6 = "/img6.jpg";
-  const img7 = "/img7.jpg";
+interface Sliders {
+  item: string;
+}
 
-  const slides = [img1, img2, img3, img4, img5, img6, img7];
+interface PropsItem {
+  slides: Sliders[];
+}
 
+function Carousel({ slides }: PropsItem) {
   return (
     <Swiper
       breakpoints={{
@@ -49,7 +47,7 @@ function Carousel() {
       {slides.map((item, i) => (
         <SwiperSlide key={i} className="rounded-lg lg:h-[30vh] lg:w-[70vw] shadow-md shadow-black">
           <Image
-            src={item}
+            src={item.item}
             height={500}
             width={500}
             alt={`image ${i + 1}`}

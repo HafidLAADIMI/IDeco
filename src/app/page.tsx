@@ -83,6 +83,7 @@ export default function Home() {
       />
 
       {steps[step]}
+    
     </div>
   );
 }
