@@ -15,9 +15,14 @@ interface Sliders {
 
 interface PropsItem {
   slides: Sliders[];
+  setSelectedSlide: React.Dispatch<React.SetStateAction<string>>;
 }
 
-function Carousel({ slides }: PropsItem) {
+function Carousel({ slides, setSelectedSlide }: PropsItem) {
+  const handleSlideSelection = (slide: string) => {
+    setSelectedSlide(slide);
+  };
+
   return (
     <Swiper
       breakpoints={{
@@ -45,7 +50,11 @@ function Carousel({ slides }: PropsItem) {
       className="w-[70vw] h-[30vh] bg-gronna shadow-sm shadow-black"
     >
       {slides.map((item, i) => (
-        <SwiperSlide key={i} className="rounded-lg lg:h-[30vh] lg:w-[70vw] shadow-md shadow-black">
+        <SwiperSlide
+          key={i}
+          className="rounded-lg lg:h-[30vh] lg:w-[70vw] shadow-md shadow-black"
+          onClick={() => handleSlideSelection(item.item)}
+        >
           <Image
             src={item.item}
             height={500}
