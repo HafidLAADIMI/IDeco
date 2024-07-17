@@ -25,7 +25,7 @@ function Style() {
       setStep(7); // Proceed to the next step
     }
   };
-
+  const img = "/bohem.jpg";
   return (
     <motion.div
       variants={{
@@ -51,19 +51,29 @@ function Style() {
           onSubmit={handleSubmit}
         >
           {[
-            { label: "Abstrait", value: "abstrait" },
-            { label: "Fleurs", value: "fleurs" },
-            { label: "Minimaliste", value: "minimaliste" },
-            { label: "Boheme", value: "boheme" },
-            { label: "Scandinave", value: "scandinave" },
-            { label: "Picasso", value: "picasso" },
-            { label: "Art", value: "art" },
-            { label: "Vintage", value: "vintage" },
-            { label: "Objet spécifique", value: "objetSpecifique" },
+            { label: "Abstrait", value: "abstrait", image: img },
+            { label: "Fleurs", value: "fleurs", image: img },
+            { label: "Minimaliste", value: "minimaliste", image: img },
+            { label: "Boheme", value: "boheme", image: img },
+            { label: "Scandinave", value: "scandinave", image: img },
+            { label: "Picasso", value: "picasso", image: img },
+            { label: "Art", value: "art", image: img },
+            { label: "Vintage", value: "vintage", image: img },
+            { label: "Objet spécifique", value: "objetSpecifique", image: img },
           ].map((style) => (
             <div
+              style={
+                selectedStyle == style.value
+                  ? {
+                      backgroundImage: `url(${style.image})`,
+                      backgroundPosition: "center",
+                    }
+                  : {}
+              }
               key={style.value}
-              className="flex flex-row items-center justify-between w-full border border-grey rounded-xl px-3 py-2"
+              className={`flex flex-row items-center justify-between w-full border border-grey rounded-xl px-3 ${
+                selectedStyle == style.value ? "py-10" : "py-2 "
+              }`}
             >
               <div className="flex flex-row items-center gap-5">
                 <p>{style.label}</p>

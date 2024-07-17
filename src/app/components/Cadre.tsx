@@ -7,7 +7,7 @@ import { useStepContext } from "../stepsContext";
 import { useFormContext } from "../formContext";
 
 function Cadre() {
-  const cadre = "/cadre.svg";
+  const cadre = "/carree.svg";
   const { setStep } = useStepContext();
   const { updateFormData } = useFormContext();
   const [selectedCadre, setSelectedCadre] = useState<string>("");

@@ -71,7 +71,7 @@ export default function Home() {
         width={500}
         alt="image"
         src={strange}
-        className="absolute h-[36.77%] w-3/5 top-[15%] right-[34.67%] left-[5.33%] max-w-full overflow-hidden max-h-full"
+        className="absolute h-[36.77%] w-3/5 top-[13%] right-[34.67%] left-[5.33%] max-w-full overflow-hidden max-h-full"
       />
       <Image
         onClick={() => setStep(0)}
@@ -81,9 +81,18 @@ export default function Home() {
         src={ideco}
         className="absolute h-[2.2%] cursor-pointer w-[21.04%] top-[2.97%] right-[62.75%] left-[16.21%] max-w-full overflow-hidden max-h-full"
       />
-
+      <div className="absolute top-[51%] font-poppins px-4">
+        <div className="font-semibold text-2xl ">Personnaliser votre</div>
+        <div className="font-semibold text-2xl">tableau décoratif</div>
+        <div className="font-semibold text-2xl text-orange">gratuitement</div>
+        <div className="font-light text-xl mt-6 ">
+          Construisez facilement votre tableau en quelques étapes simples.
+          Commencez par choisir vos préférences personnelles, puis bénéficiez d
+          une consultation et d une livraison gratuite. Rejoignez-nous et gagnez
+          en qualité et en satisfaction
+        </div>
+      </div>
       {steps[step]}
-    
     </div>
   );
 }

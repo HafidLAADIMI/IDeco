@@ -1,10 +1,13 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Poppins} from "next/font/google";
 import "./globals.css";
 import { StepContextWrapper } from "./stepsContext";
 import { FormProvider } from "./formContext";
 
-const inter = Inter({ subsets: ["latin"] });
+const poppins = Poppins({
+  weight: '400',
+  subsets: ['latin'],
+})
 
 export const metadata: Metadata = {
   title: "IDeco",
@@ -18,7 +21,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={poppins.className}>
         <StepContextWrapper>
           <FormProvider>{children}</FormProvider>
         </StepContextWrapper>

@@ -19,7 +19,6 @@ function Greeting() {
       setError("Veuillez sélctionner une langue avant de continuer")
       return;
     }
-    console.log("the selected langauge is  : " + formData.language);
     setStep(2);
   };
   return (
@@ -43,7 +42,7 @@ function Greeting() {
           className="flex text-black max-sm:text-xs sm:text-xl px-7 flex-col  w-full justify-between items-center gap-10"
         >
           <div className=" flex flex-row gap-24">
-            <div className="flex cursor-pointer flex-row items-center gap-7 border-2 border-orange py-2 px-3 rounded-xl">
+            <div className={`flex cursor-pointer flex-row items-center gap-7 border-2  py-2 px-3 rounded-xl ${formData.language=="français"?"border-orange":"border-grey"}`}>
               <label>Français</label>
               <input
                 onChange={handleLanguage}
@@ -53,7 +52,7 @@ function Greeting() {
                 value="français"
               />
             </div>
-            <div className="flex cursor-pointer flex-row items-center gap-7 border-2 border-grey py-2 px-3 rounded-xl">
+            <div className={`flex cursor-pointer flex-row items-center gap-7 border-2  py-2 px-3 rounded-xl ${formData.language=="arabe"?"border-orange":"border-grey"}`}>
               <label>Arabic</label>
               <input
                 onChange={handleLanguage}
