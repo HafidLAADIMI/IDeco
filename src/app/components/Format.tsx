@@ -76,7 +76,7 @@ function Format() {
           ].map((format) => (
             <div
               key={format.id}
-              className="flex flex-row items-center justify-between w-full border border-grey rounded-xl px-3 py-2"
+              className={`flex flex-row items-center justify-between w-full border  rounded-xl px-3 py-2 ${selectedFormat==format.id?"border-orange":"border-grey"}`}
             >
               <div className="flex flex-row items-center gap-5">
                 <Image height={30} width={30} alt="icon" src={format.src} />

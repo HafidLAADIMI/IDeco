@@ -5,6 +5,13 @@ import { motion } from "framer-motion";
 import { IoLogOutOutline } from "react-icons/io5";
 import { useStepContext } from "../stepsContext";
 import { useFormContext } from "../formContext";
+interface CadreOption {
+  id: string;
+  label: string;
+  value: string;
+  imageSrc: string;
+}
+
 
 function Cadre() {
   const cadre = "/carree.svg";
@@ -20,7 +27,11 @@ function Cadre() {
       setStep(10);
     }
   };
-
+  const cadreOptions: CadreOption[] = [
+    { id: "sans cadre", label: "Sans cadre", value: "sansCadre", imageSrc: "/carree.svg" },
+    { id: "noir", label: "Noir", value: "noir", imageSrc: "/carree.svg" },
+    { id: "dore", label: "Doré", value: "dore", imageSrc: "/carree.svg" },
+  ];
   return (
     <motion.div
       variants={{
@@ -40,48 +51,25 @@ function Cadre() {
           quasi eveniet aspernatur quod, natus aut qui cumque iure error ipsa .
         </p>
         <form className="flex px-3 text-black max-sm:text-xs sm:text-xl flex-col w-full justify-between items-start gap-5">
-          <div className="flex flex-row items-center justify-between w-full border border-grey rounded-xl px-3 py-2">
-            <div className="flex flex-row items-center gap-5">
-              <Image height={30} width={30} alt="icon" src={cadre} />
-              <p>Sans cadre</p>
+        {cadreOptions.map((option) => (
+            <div
+              key={option.id}
+              className={`flex flex-row items-center justify-between w-full border border-grey rounded-xl px-3 py-2 ${selectedCadre==option.id?"border-orange":"border-grey"}`}
+            >
+              <div className={`flex flex-row items-center gap-5`}>
+                <Image height={30} width={30} alt="icon" src={option.imageSrc} />
+                <p>{option.label}</p>
+              </div>
+              <input
+                type="radio"
+                id={option.id}
+                name="cadre"
+                value={option.value}
+                className="h-5 w-5"
+                onChange={()=>setSelectedCadre(option.id)}
+              />
             </div>
-            <input
-              type="radio"
-              id="sansCadre"
-              name="cadre"
-              value="sansCadre"
-              className="h-5 w-5"
-              onChange={() => setSelectedCadre("sansCadre")}
-            />
-          </div>
-          <div className="flex flex-row items-center justify-between w-full border border-grey rounded-xl px-3 py-2">
-            <div className="flex flex-row items-center gap-5">
-              <Image height={30} width={30} alt="icon" src={cadre} />
-              <p>Noir</p>
-            </div>
-            <input
-              type="radio"
-              id="noir"
-              name="cadre"
-              value="noir"
-              className="h-5 w-5"
-              onChange={() => setSelectedCadre("noir")}
-            />
-          </div>
-          <div className="flex flex-row items-center justify-between w-full border border-grey rounded-xl px-3 py-2">
-            <div className="flex flex-row items-center gap-5">
-              <Image height={30} width={30} alt="icon" src={cadre} />
-              <p>Doré</p>
-            </div>
-            <input
-              type="radio"
-              id="dore"
-              name="cadre"
-              value="dore"
-              className="h-5 w-5"
-              onChange={() => setSelectedCadre("dore")}
-            />
-          </div>
+          ))}
           {error && <p className="text-red-500">{error}</p>}
           <button
             type="button"
