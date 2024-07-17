@@ -11,12 +11,12 @@ export const POST = async (request: Request) => {
 
     if (!data) {
       return NextResponse.json({
-        message: "you should provied informations about the movie",
+        message: "you have to add data",
         status: 404,
       });
     }
-    const movie = new formDataModel(data);
-    await movie.save();
+    const Form = new formDataModel(data);
+    await Form.save();
 
     return NextResponse.json({
       message: "you are successfuly added the new formData",

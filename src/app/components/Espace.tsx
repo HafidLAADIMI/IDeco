@@ -8,8 +8,9 @@ import { useFormContext } from "../formContext";
 function Espace() {
   const { setStep } = useStepContext();
   const { updateFormData } = useFormContext();
+  const [clicked, setClicked] = useState<boolean>(false);
   const [selectedEspace, setSelectedEspace] = useState<string>("");
-  const [error,setError]=useState<String>("");
+  const [error, setError] = useState<String>("");
   const handleSelection = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSelectedEspace(event.target.value);
   };
@@ -17,8 +18,8 @@ function Espace() {
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (!selectedEspace) {
-        setError("Veuillez sélctionner un espace avant de continuer");
-        return;
+      setError("Veuillez sélctionner un espace avant de continuer");
+      return;
     } else {
       updateFormData({ espace: selectedEspace });
       setStep(4); // Proceed to the next step
@@ -167,9 +168,20 @@ function Espace() {
               name="espace"
               value="autre"
               className="h-5 w-5"
-              onChange={handleSelection}
+              onClick={() => setClicked(clicked ? false : true)}
             />
           </div>
+          <input
+            type="text"
+            id="write"
+            name="espace"
+            placeholder="Ecrivez-nous ..."
+            className={`${
+              clicked ? "flex" : "hidden"
+            } flex-row items-center outline-orange justify-between w-full border border-grey rounded-xl px-3 py-2 `}
+            onChange={handleSelection}
+          />
+
           {error && <p className="text-red-500">{error}</p>}
           <button
             type="submit"

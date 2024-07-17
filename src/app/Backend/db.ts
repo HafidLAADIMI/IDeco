@@ -11,7 +11,7 @@ const connectDB = async () => {
     await mongoose.connect(connectionString!, {
       serverSelectionTimeoutMS: 5000,
     });
-    console.log("you are connected to the databse Now !");
+    console.log("you are connected to the database Now !");
   } catch (error) {
     console.log(error);
   }

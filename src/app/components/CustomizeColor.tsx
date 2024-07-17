@@ -1,3 +1,4 @@
+"use client"
 import React, { useState } from "react";
 import { IoLogOutOutline } from "react-icons/io5";
 import Circle from "./Sliders/Circle";
