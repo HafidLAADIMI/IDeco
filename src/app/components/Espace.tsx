@@ -7,7 +7,7 @@ import { useFormContext } from "../formContext";
 
 function Espace() {
   const { setStep } = useStepContext();
-  const { updateFormData } = useFormContext();
+  const { updateFormData, formData } = useFormContext();
   const [clicked, setClicked] = useState<boolean>(false);
   const [selectedEspace, setSelectedEspace] = useState<string>("");
   const [error, setError] = useState<String>("");
@@ -35,6 +35,17 @@ function Espace() {
   const toilette = "/toilette.svg";
   const autre = "/autre.svg";
 
+  const espaces = [
+    { id: "salon", label: "Salon", src: salon },
+    { id: "sejour", label: "Séjour", src: sejour },
+    { id: "cuisine", label: "Cuisine", src: cuisine },
+    { id: "bureau", label: "Bureau", src: bureau },
+    { id: "chambreCouche", label: "Chambre à coucher", src: chambreCouche },
+    { id: "chambreEnfant", label: "Chambre d'enfants", src: chambreEnfant },
+    { id: "toilette", label: "Toilette", src: toilette },
+    { id: "autre", label: "Autre", src: autre },
+  ];
+
   return (
     <motion.div
       variants={{
@@ -59,118 +70,30 @@ function Espace() {
           className="flex text-black max-sm:text-xs sm:text-xl flex-col w-full justify-between items-start px-3 gap-6"
           onSubmit={handleSubmit}
         >
-          <div className="flex flex-row items-center justify-between w-full border border-grey rounded-xl px-3 py-2">
-            <div className="flex flex-row items-center gap-5">
-              <Image height={30} width={30} alt="icon" src={salon} />
-              <p>Salon</p>
+          {espaces.map(({ id, label, src }) => (
+            <div
+              key={id}
+              className={`flex flex-row items-center justify-between w-full border  rounded-xl px-3 py-2  ${
+                  selectedEspace == id ? "border-orange" : "border-grey"
+                }`}
+            >
+              <div
+                className={`flex flex-row items-center gap-5`}
+              >
+                <Image height={30} width={30} alt="icon" src={src} />
+                <p>{label}</p>
+              </div>
+              <input
+                type="radio"
+                id={id}
+                name="espace"
+                value={id}
+                className="h-5 w-5"
+                onChange={handleSelection}
+                onClick={() => setClicked(id == "autre" ? true : false)}
+              />
             </div>
-            <input
-              type="radio"
-              id="salon"
-              name="espace"
-              value="salon"
-              className="h-5 w-5"
-              onChange={handleSelection}
-            />
-          </div>
-          <div className="flex flex-row items-center justify-between w-full border border-grey rounded-xl px-3 py-2">
-            <div className="flex flex-row items-center gap-5">
-              <Image height={30} width={30} alt="icon" src={sejour} />
-              <p>Séjour</p>
-            </div>
-            <input
-              type="radio"
-              id="sejour"
-              name="espace"
-              value="sejour"
-              className="h-5 w-5"
-              onChange={handleSelection}
-            />
-          </div>
-          <div className="flex flex-row items-center justify-between w-full border border-grey rounded-xl px-3 py-2">
-            <div className="flex flex-row items-center gap-5">
-              <Image height={30} width={30} alt="icon" src={cuisine} />
-              <p>Cuisine</p>
-            </div>
-            <input
-              type="radio"
-              id="cuisine"
-              name="espace"
-              value="cuisine"
-              className="h-5 w-5"
-              onChange={handleSelection}
-            />
-          </div>
-          <div className="flex flex-row items-center justify-between w-full border border-grey rounded-xl px-3 py-2">
-            <div className="flex flex-row items-center gap-5">
-              <Image height={30} width={30} alt="icon" src={bureau} />
-              <p>Bureau</p>
-            </div>
-            <input
-              type="radio"
-              id="bureau"
-              name="espace"
-              value="bureau"
-              className="h-5 w-5"
-              onChange={handleSelection}
-            />
-          </div>
-          <div className="flex flex-row items-center justify-between w-full border border-grey rounded-xl px-3 py-2">
-            <div className="flex flex-row items-center gap-5">
-              <Image height={30} width={30} alt="icon" src={chambreCouche} />
-              <p>Chambre à coucher</p>
-            </div>
-            <input
-              type="radio"
-              id="chambreCouche"
-              name="espace"
-              value="chambreCouche"
-              className="h-5 w-5"
-              onChange={handleSelection}
-            />
-          </div>
-          <div className="flex flex-row items-center justify-between w-full border border-grey rounded-xl px-3 py-2">
-            <div className="flex flex-row items-center gap-5">
-              <Image height={30} width={30} alt="icon" src={chambreEnfant} />
-              <p>Chambre d enfants</p>
-            </div>
-            <input
-              type="radio"
-              id="chambreEnfant"
-              name="espace"
-              value="chambreEnfant"
-              className="h-5 w-5"
-              onChange={handleSelection}
-            />
-          </div>
-          <div className="flex flex-row items-center justify-between w-full border border-grey rounded-xl px-3 py-2">
-            <div className="flex flex-row items-center gap-5">
-              <Image height={30} width={30} alt="icon" src={toilette} />
-              <p>Toilette</p>
-            </div>
-            <input
-              type="radio"
-              id="toilette"
-              name="espace"
-              value="toilette"
-              className="h-5 w-5"
-              onChange={handleSelection}
-            />
-          </div>
-          <div className="flex flex-row items-center justify-between w-full border border-grey rounded-xl px-3 py-2">
-            <div className="flex flex-row items-center gap-5">
-              <Image height={30} width={30} alt="icon" src={autre} />
-              <p>Autre</p>
-            </div>
-            <input
-              type="radio"
-              id="autre"
-              name="espace"
-              value="autre"
-              className="h-5 w-5"
-              onClick={() => setClicked(clicked ? false : true)}
-            />
-          </div>
+          ))}
           <input
             type="text"
             id="write"

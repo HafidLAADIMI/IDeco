@@ -26,14 +26,30 @@ function Couleur() {
   };
   const colors = [
     { value: "aucun", label: "Aucun --" },
-    { value: "#FF5733", label: "Rouge" },
-    { value: "#008000", label: "Vert" },
-    { value: "#FFFF00", label: "Jaune" },
+    { value: "#FF5733", label: "Red" },
+    { value: "#33FF57", label: "Green" },
+    { value: "#FFFF00", label: "Yellow" },
     { value: "#FFA500", label: "Orange" },
     { value: "#0000FF", label: "Blue" },
-    { value: "#8A2BE2", label: "Violet" },
-    { value: "#FFFFFF", label: "Blanche" },
-    { value: "#000000", label: "Noir" },
+    { value: "#8A2BE2", label: "Purple" },
+    { value: "#FFFFFF", label: "White" },
+    { value: "#000000", label: "Black" },
+    { value: "#00FFFF", label: "Cyan" },
+    { value: "#FFD700", label: "Gold" },
+    { value: "#FFDAB9", label: "Peach" },
+    { value: "#FF1493", label: "Pink" },
+    { value: "#FFF8DC", label: "Cream" },
+    { value: "#A52A2A", label: "Brown" },
+    { value: "#40E0D0", label: "Turquoise" },
+    { value: "#6B8E23", label: "Olive" },
+    { value: "#00FFFF", label: "Aqua" },
+    { value: "#00BFFF", label: "Sky" },
+    { value: "#FF33A1", label: "Magenta" },
+    { value: "#FFD700", label: "Gold" },
+    { value: "#7B68EE", label: "Indigo" },
+    { value: "#32CD32", label: "Teal" },
+    { value: "#ADFF2F", label: "Lime" },
+    { value: "#ADD8E6", label: "Light" },
   ];
 
   return (
@@ -67,7 +83,7 @@ function Couleur() {
             onChange={handleSelection}
           >
             {colors.map((color) => (
-              <option key={color.value} value={color.value}>
+              <option key={color.value} value={color.label}>
                 {color.label}
               </option>
             ))}
